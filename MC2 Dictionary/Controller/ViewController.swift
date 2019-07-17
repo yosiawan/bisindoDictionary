@@ -46,8 +46,8 @@ class ViewController: UIViewController {
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Terjemahan" {
-            let controller = (segue.destination as! UINavigationController).topViewController as! TranslationPage
-            controller.filterText = textField.text ?? ""
+            let controller = segue.destination as! TranslationPage
+            controller.filterText = textField.text ?? "Kucing"
         }
     }
 }

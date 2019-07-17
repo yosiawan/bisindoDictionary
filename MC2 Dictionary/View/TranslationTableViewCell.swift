@@ -10,6 +10,7 @@ import UIKit
 
 class TranslationTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var terjemahan: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

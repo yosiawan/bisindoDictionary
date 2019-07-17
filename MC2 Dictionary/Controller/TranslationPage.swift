@@ -11,7 +11,7 @@ import UIKit
 class TranslationPage: UIViewController {
 
     @IBOutlet weak var translationView: UITableView!
-    var filterText: String = ""
+    var filterText: String?
     var model = WordsModel()
     var words = [Word]()
     
@@ -26,7 +26,6 @@ class TranslationPage: UIViewController {
         translationView.register(UINib(nibName: "TranslationTableViewCell", bundle: nil), forCellReuseIdentifier: "translationCustomCell")
 
         // Query CloudKit
-        self.model.searchWord(text: filterText)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,14 +36,13 @@ class TranslationPage: UIViewController {
         let backColor = #colorLiteral(red: 0.1176470588, green: 0.1529411765, blue: 0.1803921569, alpha: 1)
         navigationController?.navigationBar.tintColor = backColor
         
+        print(filterText!)
+        WordsModel.shared.searchWord(text: filterText!)        
     }
 }
 
 extension TranslationPage: UITableViewDelegate, UITableViewDataSource
 {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -55,11 +53,9 @@ extension TranslationPage: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "translationCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "translationCell", for: indexPath) as! TranslationTableViewCell
         
-        let word = model.Words[indexPath.row]
-        cell.textLabel?.text = word.text
-        
+        cell.terjemahan.text = model.Words[indexPath.row].text
         return cell
     }
 }

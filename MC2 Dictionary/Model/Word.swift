@@ -9,6 +9,7 @@
 import CloudKit
 
 class WordsModel {
+    static let shared = WordsModel()
     
     private let database = CKContainer(identifier: "iCloud.iOS-DA.MC2-Dictionary").privateCloudDatabase
     
@@ -44,7 +45,7 @@ class WordsModel {
                 self.handle(error: error!)
                 return
             }
-            print(records.count)
+            print("jumlah", records.count)
             self.records = records
             self.updateWords()
         }

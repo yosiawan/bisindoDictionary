@@ -44,7 +44,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image=""/>
                                                 <connections>
-                                                    <segue destination="ree-jx-XcB" kind="show" id="8y4-1J-6E3"/>
+                                                    <segue destination="ree-jx-XcB" kind="show" identifier="Terjemahan" id="8y4-1J-6E3"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scroll untuk melihat kata-kata keren lainnya" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAq-zM-X9J">

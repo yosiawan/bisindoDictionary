@@ -26,17 +26,20 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Group 7" translatesAutoresizingMaskIntoConstraints="NO" id="Gx7-BW-FIt">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Group 3" translatesAutoresizingMaskIntoConstraints="NO" id="Gx7-BW-FIt">
                         <rect key="frame" x="20" y="58" width="374" height="210"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="terjemahan" destination="FEf-Oh-XkW" id="Xj5-FD-n7b"/>
+            </connections>
             <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Group 7" width="175" height="101"/>
+        <image name="Group 3" width="374" height="210"/>
     </resources>
 </document>
