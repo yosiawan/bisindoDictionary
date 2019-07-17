@@ -34,6 +34,22 @@ class WordsModel {
         }
     }
     
+    func searchWord(text: String) {
+        let predicate = NSPredicate(format: "text BEGINSWITH %@", text)
+        //        let compoundPredicate = NSCompoundPredicate (andPredicateWithSubpredicates: [predicate, predicate2])
+        let query = CKQuery(recordType: Word.recordType, predicate: predicate)
+        
+        database.perform(query, inZoneWith: nil) { records, error in
+            guard let records = records, error == nil else {
+                self.handle(error: error!)
+                return
+            }
+            print(records.count)
+            self.records = records
+            self.updateWords()
+        }
+    }
+    
     @objc func refresh() {
         let query = CKQuery(recordType: Word.recordType, predicate: NSPredicate(value: true))
         
