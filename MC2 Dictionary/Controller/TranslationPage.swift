@@ -11,13 +11,9 @@ import UIKit
 class TranslationPage: UIViewController {
 
     @IBOutlet weak var translationView: UITableView!
-    var filterText: String
+    var filterText: String = ""
     var model = WordsModel()
     var words = [Word]()
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

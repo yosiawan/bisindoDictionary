@@ -19,6 +19,7 @@
 		9595D80722D324E100536DE2 /* MC2_Dictionary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9595D80522D324E100536DE2 /* MC2_Dictionary.xcdatamodeld */; };
 		9595D80922D324E200536DE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9595D80822D324E200536DE2 /* Assets.xcassets */; };
 		9595D80C22D324E200536DE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9595D80A22D324E200536DE2 /* LaunchScreen.storyboard */; };
+		95DFF28422DF238E00190D93 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DFF28322DF238E00190D93 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		9595D80822D324E200536DE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9595D80B22D324E200536DE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9595D80D22D324E200536DE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95DFF28122DF238A00190D93 /* MC2 Dictionary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MC2 Dictionary.entitlements"; sourceTree = "<group>"; };
+		95DFF28322DF238E00190D93 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95DFF28422DF238E00190D93 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +89,7 @@
 			children = (
 				9595D7FD22D324E100536DE2 /* MC2 Dictionary */,
 				9595D7FC22D324E100536DE2 /* Products */,
+				95DFF28222DF238E00190D93 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +104,7 @@
 		9595D7FD22D324E100536DE2 /* MC2 Dictionary */ = {
 			isa = PBXGroup;
 			children = (
+				95DFF28122DF238A00190D93 /* MC2 Dictionary.entitlements */,
 				13B11B6222DDBDDF00CD0FBC /* Controller */,
 				13B11B6122DDBDCE00CD0FBC /* View */,
 				13B11B6022DDBDBF00CD0FBC /* Model */,
@@ -107,6 +113,14 @@
 				9595D80522D324E100536DE2 /* MC2_Dictionary.xcdatamodeld */,
 			);
 			path = "MC2 Dictionary";
+			sourceTree = "<group>";
+		};
+		95DFF28222DF238E00190D93 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95DFF28322DF238E00190D93 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +155,14 @@
 				TargetAttributes = {
 					9595D7FA22D324E100536DE2 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -334,6 +356,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "MC2 Dictionary/MC2 Dictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BGFK6PG7Z9;
 				INFOPLIST_FILE = "MC2 Dictionary/Info.plist";
@@ -352,6 +375,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "MC2 Dictionary/MC2 Dictionary.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BGFK6PG7Z9;
 				INFOPLIST_FILE = "MC2 Dictionary/Info.plist";
