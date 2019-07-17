@@ -33,6 +33,7 @@ class ViewController: UIViewController {
         tableVie.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "cellViewCustom")
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -43,9 +44,13 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(img, for: UIBarMetrics.default)
          }
    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Terjemahan" {
+            let controller = (segue.destination as! UINavigationController).topViewController as! TranslationPage
+            controller.filterText = textField.text ?? ""
+        }
+    }
 }
-
-
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

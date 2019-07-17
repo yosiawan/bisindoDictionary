@@ -11,6 +11,13 @@ import UIKit
 class TranslationPage: UIViewController {
 
     @IBOutlet weak var translationView: UITableView!
+    var filterText: String
+    var model = WordsModel()
+    var words = [Word]()
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +29,8 @@ class TranslationPage: UIViewController {
         
         translationView.register(UINib(nibName: "TranslationTableViewCell", bundle: nil), forCellReuseIdentifier: "translationCustomCell")
 
+        // Query CloudKit
+        self.model.searchWord(text: filterText)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,7 +42,6 @@ class TranslationPage: UIViewController {
         navigationController?.navigationBar.tintColor = backColor
         
     }
-
 }
 
 extension TranslationPage: UITableViewDelegate, UITableViewDataSource
@@ -41,18 +49,21 @@ extension TranslationPage: UITableViewDelegate, UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "translationCustomCell", for: indexPath) as! TranslationTableViewCell
-    
-        return cell
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.model.Words.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "translationCell", for: indexPath)
+        
+        let word = model.Words[indexPath.row]
+        cell.textLabel?.text = word.text
+        
+        return cell
+    }
 }
