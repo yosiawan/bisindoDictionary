@@ -32,6 +32,7 @@ class ViewController: UIViewController {
         
         tableVie.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "cellViewCustom")
         
+        navigationController?.navigationBar.prefersLargeTitles = true        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +43,7 @@ class ViewController: UIViewController {
         let img = UIImage()
         self.navigationController?.navigationBar.shadowImage = img
         self.navigationController?.navigationBar.setBackgroundImage(img, for: UIBarMetrics.default)
-         }
+    }
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Terjemahan" {
@@ -64,6 +65,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    
+          performSegue(withIdentifier: "topikSegue", sender: self)
     }
     
     

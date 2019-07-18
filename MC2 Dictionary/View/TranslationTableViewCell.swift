@@ -10,12 +10,22 @@ import UIKit
 
 class TranslationTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var videoTap: UIView!
     @IBOutlet weak var terjemahan: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        videoTap.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapVideo))
+        tap.numberOfTapsRequired = 1
+        videoTap.addGestureRecognizer(tap)
     }
 
+    @objc func tapVideo(sender : UITapGestureRecognizer){
+        print("videoTap")
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

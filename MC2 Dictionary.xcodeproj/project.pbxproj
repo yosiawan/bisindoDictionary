@@ -13,6 +13,10 @@
 		13B11B6A22DDFB9000CD0FBC /* TranslationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B11B6922DDFB9000CD0FBC /* TranslationPage.swift */; };
 		13B11B7322DF071000CD0FBC /* TranslationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B11B7122DF071000CD0FBC /* TranslationTableViewCell.swift */; };
 		13B11B7422DF071000CD0FBC /* TranslationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B11B7222DF071000CD0FBC /* TranslationTableViewCell.xib */; };
+		13B11B7822DF45EF00CD0FBC /* TopikPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B11B7722DF45EF00CD0FBC /* TopikPreferences.swift */; };
+		13B11B7B22E0105600CD0FBC /* TopikTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B11B7922E0105600CD0FBC /* TopikTableViewCell.swift */; };
+		13B11B7C22E0105600CD0FBC /* TopikTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B11B7A22E0105600CD0FBC /* TopikTableViewCell.xib */; };
+		13B11B7E22E058EC00CD0FBC /* NextFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B11B7D22E058EC00CD0FBC /* NextFeatures.swift */; };
 		9595D7FF22D324E100536DE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595D7FE22D324E100536DE2 /* AppDelegate.swift */; };
 		9595D80122D324E100536DE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595D80022D324E100536DE2 /* ViewController.swift */; };
 		9595D80422D324E100536DE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9595D80222D324E100536DE2 /* Main.storyboard */; };
@@ -29,6 +33,10 @@
 		13B11B6922DDFB9000CD0FBC /* TranslationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationPage.swift; sourceTree = "<group>"; };
 		13B11B7122DF071000CD0FBC /* TranslationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationTableViewCell.swift; sourceTree = "<group>"; };
 		13B11B7222DF071000CD0FBC /* TranslationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TranslationTableViewCell.xib; sourceTree = "<group>"; };
+		13B11B7722DF45EF00CD0FBC /* TopikPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopikPreferences.swift; sourceTree = "<group>"; };
+		13B11B7922E0105600CD0FBC /* TopikTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopikTableViewCell.swift; sourceTree = "<group>"; };
+		13B11B7A22E0105600CD0FBC /* TopikTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopikTableViewCell.xib; sourceTree = "<group>"; };
+		13B11B7D22E058EC00CD0FBC /* NextFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextFeatures.swift; sourceTree = "<group>"; };
 		9595D7FB22D324E100536DE2 /* MC2 Dictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC2 Dictionary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9595D7FE22D324E100536DE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9595D80022D324E100536DE2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +78,8 @@
 				9595D80A22D324E200536DE2 /* LaunchScreen.storyboard */,
 				13B11B7122DF071000CD0FBC /* TranslationTableViewCell.swift */,
 				13B11B7222DF071000CD0FBC /* TranslationTableViewCell.xib */,
+				13B11B7922E0105600CD0FBC /* TopikTableViewCell.swift */,
+				13B11B7A22E0105600CD0FBC /* TopikTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -80,6 +90,8 @@
 				9595D7FE22D324E100536DE2 /* AppDelegate.swift */,
 				9595D80022D324E100536DE2 /* ViewController.swift */,
 				13B11B6922DDFB9000CD0FBC /* TranslationPage.swift */,
+				13B11B7722DF45EF00CD0FBC /* TopikPreferences.swift */,
+				13B11B7D22E058EC00CD0FBC /* NextFeatures.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -192,6 +204,7 @@
 				9595D80C22D324E200536DE2 /* LaunchScreen.storyboard in Resources */,
 				9595D80922D324E200536DE2 /* Assets.xcassets in Resources */,
 				13B11B7422DF071000CD0FBC /* TranslationTableViewCell.xib in Resources */,
+				13B11B7C22E0105600CD0FBC /* TopikTableViewCell.xib in Resources */,
 				13B11B6622DDD07A00CD0FBC /* CustomTableViewCell.xib in Resources */,
 				9595D80422D324E100536DE2 /* Main.storyboard in Resources */,
 			);
@@ -206,11 +219,14 @@
 			files = (
 				9595D80122D324E100536DE2 /* ViewController.swift in Sources */,
 				13B11B6522DDD07A00CD0FBC /* CustomTableViewCell.swift in Sources */,
+				13B11B7822DF45EF00CD0FBC /* TopikPreferences.swift in Sources */,
+				13B11B7B22E0105600CD0FBC /* TopikTableViewCell.swift in Sources */,
 				13B11B6A22DDFB9000CD0FBC /* TranslationPage.swift in Sources */,
 				13B11B5F22DDBD9B00CD0FBC /* Word.swift in Sources */,
 				9595D80722D324E100536DE2 /* MC2_Dictionary.xcdatamodeld in Sources */,
 				13B11B7322DF071000CD0FBC /* TranslationTableViewCell.swift in Sources */,
 				9595D7FF22D324E100536DE2 /* AppDelegate.swift in Sources */,
+				13B11B7E22E058EC00CD0FBC /* NextFeatures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +383,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "iOS-DA.MC2-Dictionary";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -386,7 +402,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "iOS-DA.MC2-Dictionary";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
