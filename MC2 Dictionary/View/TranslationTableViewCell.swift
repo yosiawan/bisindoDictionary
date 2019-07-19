@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class TranslationTableViewCell: UITableViewCell {
 
     @IBOutlet weak var videoTap: UIView!
     @IBOutlet weak var terjemahan: UILabel!
-    
+    @IBOutlet weak var videoTerjemahan: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = img
         self.navigationController?.navigationBar.setBackgroundImage(img, for: UIBarMetrics.default)
     }
-   
+    // Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Terjemahan" {
             let controller = segue.destination as! TranslationPage

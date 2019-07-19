@@ -151,6 +151,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2eb-mH-nf1">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kata - kata tidak ditemukan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JvF-S6-Q6v">
+                                <rect key="frame" x="102.5" y="437.5" width="209.5" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -178,6 +189,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="errorMessage" destination="JvF-S6-Q6v" id="k3i-x7-Trs"/>
+                        <outlet property="loadingIndicator" destination="2eb-mH-nf1" id="Moz-Su-F42"/>
                         <outlet property="translationView" destination="exc-IS-xuV" id="MFV-Qs-YBS"/>
                     </connections>
                 </viewController>
@@ -251,6 +264,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Topik Title" id="f9F-eb-3K6"/>
                     <connections>
+                        <outlet property="errorMessage" destination="JvF-S6-Q6v" id="hfH-Kz-qTe"/>
+                        <outlet property="loadingIndicator" destination="2eb-mH-nf1" id="eX2-JI-84s"/>
                         <outlet property="preferencesTopik" destination="UbF-2a-XxW" id="7y1-RV-DKb"/>
                     </connections>
                 </viewController>

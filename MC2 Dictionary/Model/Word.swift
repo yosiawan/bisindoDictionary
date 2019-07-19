@@ -8,16 +8,22 @@
 
 import CloudKit
 
-class WordsModel {
-    static let shared = WordsModel()
+class DictionaryModel {
     
     private let database = CKContainer(identifier: "iCloud.iOS-DA.MC2-Dictionary").privateCloudDatabase
     
-    var records = [CKRecord]()
-    var insertedObjects = [Word]()
-    var deletedObjectIds = Set<CKRecord.ID>()
-    
+    var wordsRecord = [CKRecord]()
+    var sentencesRecord = [CKRecord]()
+
     var Words = [Word]() {
+        didSet {
+            self.notificationQueue.addOperation {
+                self.onChange?()
+            }
+        }
+    }
+    
+    var Sentences = [Sentence]() {
         didSet {
             self.notificationQueue.addOperation {
                 self.onChange?()
@@ -35,20 +41,41 @@ class WordsModel {
         }
     }
     
-    func searchWord(text: String) {
+    func searchDictionary(text: String, refreshFunc: @escaping () -> Void, errorFunc: @escaping () -> Void) {
         let predicate = NSPredicate(format: "text BEGINSWITH %@", text)
-        //        let compoundPredicate = NSCompoundPredicate (andPredicateWithSubpredicates: [predicate, predicate2])
-        let query = CKQuery(recordType: Word.recordType, predicate: predicate)
+//        let predicateSentence = NSPredicate(format: "title BEGINSWITH %@", text)
+//        let predicateAll = NSPredicate(value: true)
         
-        database.perform(query, inZoneWith: nil) { records, error in
+        let queryWords = CKQuery(recordType: Word.recordType, predicate: predicate)
+//        let querySentences = CKQuery(recordType: Sentence.recordType, predicate: predicateSentence)
+        print("fetching...")
+        database.perform(queryWords, inZoneWith: nil) { records, error in
             guard let records = records, error == nil else {
                 self.handle(error: error!)
-                return
+                errorFunc()
+                return print("error pas fetching words pak", error as Any)
             }
-            print("jumlah", records.count)
-            self.records = records
+            if records.count < 1 {
+                errorFunc()
+            }
+            
+            print("jumlah words di model", records.count)
+            self.wordsRecord = records
             self.updateWords()
+            refreshFunc()
         }
+
+//        database.perform(querySentences, inZoneWith: nil) { records, error in
+//            guard let records = records, error == nil else {
+//                self.handle(error: error!)
+//                return print("error pas fetching sentences pak", error as Any)
+//            }
+//
+//            print("jumlah sentences", records.count)
+//            self.sentencesRecord = records
+//            print("jumlah sentences yg ada", self.wordsRecord.count)
+//            self.updateSentences()
+//        }
     }
     
     @objc func refresh() {
@@ -59,60 +86,21 @@ class WordsModel {
                 self.handle(error: error!)
                 return
             }
-            self.records = records
+            self.wordsRecord = records
             self.updateWords()
             self.Words = records.map { record in Word(record: record) }
         }
     }
-    // ...
-    func addWord(text : String) {
-        
-        var word = Word()
-        word.text = text
-        database.save(word.record) { _, error in
-            guard error == nil else {
-                self.handle(error: error!)
-                return
-            }
-        }
-        
-        self.insertedObjects.append(word)
-        self.updateWords()
-    }
-    
-    func delete(at index : Int) {
-        let recordId = self.Words[index].record.recordID
-        database.delete(withRecordID: recordId) { _, error in
-            guard error == nil else {
-                self.handle(error: error!)
-                return
-            }
-        }
-        deletedObjectIds.insert(recordId)
-        updateWords()
-    }
     
     private func updateWords() {
-        
-        var knownIds = Set(records.map { $0.recordID })
-        
-        // remove objects from our local list once we see them returned from the cloudkit storage
-        self.insertedObjects.removeAll { errand in
-            knownIds.contains(errand.record.recordID)
-        }
-        knownIds.formUnion(self.insertedObjects.map { $0.record.recordID })
-        
-        // remove objects from our local list once we see them not being returned from storage anymore
-        self.deletedObjectIds.formIntersection(knownIds)
-        
-        var words = records.map { record in Word(record: record) }
-        
-        words.append(contentsOf: self.insertedObjects)
-        words.removeAll { errand in
-            deletedObjectIds.contains(errand.record.recordID)
-        }
-        
+
+        let words = wordsRecord.map { record in Word(record: record) }
         self.Words = words
+    }
+    
+    private func updateSentences() {
+        let sentences = sentencesRecord.map { record in Sentence(record: record) }
+        self.Sentences = sentences
     }
 }
 struct Word {
@@ -157,3 +145,57 @@ struct Word {
         }
     }
 }
+
+struct Sentence {
+    
+    fileprivate static let recordType = "sentences"
+    fileprivate static let keys = (description : "description", texts: "texts", title: "title", video: "video")
+    
+    var record : CKRecord
+    
+    init(record : CKRecord) {
+        self.record = record
+    }
+    
+    init() {
+        self.record = CKRecord(recordType: Word.recordType)
+    }
+    
+    var title : String {
+        get {
+            return self.record.value(forKey: Sentence.keys.title) as! String
+        }
+        set {
+            self.record.setValue(newValue, forKey: Sentence.keys.title)
+        }
+    }
+    
+    var texts : [String] {
+        get {
+            return self.record.value(forKey: Sentence.keys.texts) as! [String]
+        }
+        set {
+            self.record.setValue(newValue, forKey: Sentence.keys.texts)
+        }
+    }
+    
+    var description : String {
+        get {
+            return self.record.value(forKey: Sentence.keys.description) as! String
+        }
+        set {
+            self.record.setValue(newValue, forKey: Sentence.keys.description)
+        }
+    }
+    
+    var video : CKAsset {
+        get {
+            return self.record.value(forKey: Sentence.keys.video) as! CKAsset
+        }
+        set {
+            self.record.setValue(newValue, forKey: Sentence.keys.video)
+        }
+    }
+}
+
+

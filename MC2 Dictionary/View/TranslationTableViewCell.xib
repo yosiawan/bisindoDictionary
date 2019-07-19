@@ -37,6 +37,7 @@
             <connections>
                 <outlet property="terjemahan" destination="FEf-Oh-XkW" id="Xj5-FD-n7b"/>
                 <outlet property="videoTap" destination="Gx7-BW-FIt" id="EPc-KZ-3Wk"/>
+                <outlet property="videoTerjemahan" destination="Gx7-BW-FIt" id="zsC-OM-q5a"/>
             </connections>
             <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
         </tableViewCell>
