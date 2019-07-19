@@ -69,6 +69,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
           performSegue(withIdentifier: "topikSegue", sender: self)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.layer.transform = CATransform3DMakeScale(0.8, 0.8, 1.0)
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            cell.layer.transform = CATransform3DMakeScale(1.0, 1.0, 1.0)
+        }, completion: nil)
     
+    }
 }
 
