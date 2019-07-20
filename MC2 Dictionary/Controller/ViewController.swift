@@ -80,8 +80,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellViewCustom", for: indexPath) as! CustomTableViewCell
-        cell.textLabel?.text = TopikName[indexPath.row]
-        cell.imageView?.image = UIImage(named: TopikName[indexPath.row])
+        cell.topikLabel?.text = TopikName[indexPath.row]
+        cell.topikImage.image = UIImage(named: TopikName[indexPath.row])
         return cell
     }
     

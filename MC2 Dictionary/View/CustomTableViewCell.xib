@@ -42,6 +42,10 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="topikImage" destination="pD6-Aq-Sxj" id="czD-xj-7Ym"/>
+                <outlet property="topikLabel" destination="oqk-se-QBJ" id="12b-a5-4Jy"/>
+            </connections>
             <point key="canvasLocation" x="46.376811594202906" y="28.459821428571427"/>
         </tableViewCell>
     </objects>
