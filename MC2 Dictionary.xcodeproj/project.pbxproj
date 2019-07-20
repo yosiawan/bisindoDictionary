@@ -25,6 +25,7 @@
 		9595D80C22D324E200536DE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9595D80A22D324E200536DE2 /* LaunchScreen.storyboard */; };
 		95DFF28422DF238E00190D93 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DFF28322DF238E00190D93 /* CloudKit.framework */; };
 		95DFF28822E1C5CF00190D93 /* Topik.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DFF28722E1C5CF00190D93 /* Topik.swift */; };
+		95DFF28A22E1C97C00190D93 /* GifPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DFF28922E1C97C00190D93 /* GifPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		95DFF28122DF238A00190D93 /* MC2 Dictionary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MC2 Dictionary.entitlements"; sourceTree = "<group>"; };
 		95DFF28322DF238E00190D93 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		95DFF28722E1C5CF00190D93 /* Topik.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topik.swift; sourceTree = "<group>"; };
+		95DFF28922E1C97C00190D93 /* GifPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				13B11B6922DDFB9000CD0FBC /* TranslationPage.swift */,
 				13B11B7722DF45EF00CD0FBC /* TopikPreferences.swift */,
 				13B11B7D22E058EC00CD0FBC /* NextFeatures.swift */,
+				95DFF28922E1C97C00190D93 /* GifPlayer.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				13B11B7822DF45EF00CD0FBC /* TopikPreferences.swift in Sources */,
 				13B11B7B22E0105600CD0FBC /* TopikTableViewCell.swift in Sources */,
 				13B11B6A22DDFB9000CD0FBC /* TranslationPage.swift in Sources */,
+				95DFF28A22E1C97C00190D93 /* GifPlayer.swift in Sources */,
 				13B11B5F22DDBD9B00CD0FBC /* Word.swift in Sources */,
 				9595D80722D324E100536DE2 /* MC2_Dictionary.xcdatamodeld in Sources */,
 				13B11B7322DF071000CD0FBC /* TranslationTableViewCell.swift in Sources */,
