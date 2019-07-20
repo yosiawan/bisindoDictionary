@@ -10,6 +10,9 @@ import UIKit
 
 class TopikTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var sentenceLabel: UILabel!
+    public var selectedSentenceKeys: [String] = []
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

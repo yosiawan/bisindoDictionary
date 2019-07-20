@@ -44,3 +44,41 @@ let categoryList: [Any] = [
     ]
 ]
 
+let TopikName = [
+    "Abjad",
+    "Angka",
+    "HariBulan",
+    "KataTanya",
+    "Kegiatan",
+    "Keluarga",
+    "Kesehatan",
+    "Perasaan",
+    "Perkenalan",
+    "RasaBuah",
+    "Reaksi",
+    "Warna"
+]
+
+let topikSentences: [String: [[String]]] = [
+    "Abjad": [
+        ["A"],
+        ["B"],
+        ["C"]
+    ],
+    "Angka": [],
+    "HariBulan": [],
+    "KataTanya": [
+        ["Saya", "Siapa"],
+        ["Kamu", "Tinggal", "Dimana"]
+    ],
+    "Kegiatan": [],
+    "Keluarga": [],
+    "Kesehatan": [],
+    "Perasaan": [],
+    "Perkenalan": [
+        ["Nama", "Kamu", "Siapa"]
+    ],
+    "RasaBuah": [],
+    "Reaksi": [],
+    "Warna": []
+]

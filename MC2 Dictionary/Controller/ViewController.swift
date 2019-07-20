@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    var selectedTopic: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -46,33 +48,28 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = img
         self.navigationController?.navigationBar.setBackgroundImage(img, for: UIBarMetrics.default)
     }
+    
+    // Get cell data
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let selectedCell = tableView.cellForRow(at: indexPath) as! CustomTableViewCell
+        selectedTopic = selectedCell.topikLabel?.text ?? "Kucing"
+        performSegue(withIdentifier: "topikSegue", sender: self)
+    }
+    
     // Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Terjemahan" {
             let controller = segue.destination as! TranslationPage
             controller.filterText = textField.text ?? "Kucing"
         }
-//        if segue.identifier == "topikSegue" {
-//            let controller = segue.destination as! TranslationPage
-//            controller.filterText = textField.text ?? "Kucing"
-//        }
+        if segue.identifier == "topikSegue" {
+            let controller = segue.destination as! topikPreferences
+            controller.sentences = topikSentences[selectedTopic] ?? [[""]]
+        }    
     }
 }
 
-let TopikName = [
-    "Abjad",
-    "Angka",
-    "HariBulan",
-    "KataTanya",
-    "Kegiatan",
-    "Keluarga",
-    "Kesehatan",
-    "Perasaan",
-    "Perkenalan",
-    "RasaBuah",
-    "Reaksi",
-    "Warna"
-]
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return TopikName.count
@@ -85,12 +82,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    
-          performSegue(withIdentifier: "topikSegue", sender: self)
-    }
-    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.layer.transform = CATransform3DMakeScale(0.8, 0.8, 1.0)
         
@@ -100,4 +91,3 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     }
 }
-

@@ -16,6 +16,8 @@ class TranslationPage: UIViewController {
     @IBOutlet weak var errorMessage: UILabel!
     
     var filterText: String?
+    var hardcodedResult: [String]?
+    
     var model = DictionaryModel()
 
     override func viewDidLoad() {
@@ -31,9 +33,10 @@ class TranslationPage: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("filter", filterText!)
         errorMessage.alpha = 0
-        model.searchDictionary(text: filterText!, refreshFunc: self.refreshFunction, errorFunc: errorFunction)
+        if filterText != nil {
+            model.searchDictionary(text: filterText!, refreshFunc: self.refreshFunction, errorFunc: errorFunction)
+        }
         loadingIndicator?.startAnimating()
     }
     
@@ -65,16 +68,39 @@ class TranslationPage: UIViewController {
 
 extension TranslationPage: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.Words.count
+        if filterText != nil {
+            return model.Words.count
+        }
+        
+        if hardcodedResult != nil {
+            return hardcodedResult?.count ?? 0
+        }
+
+        else { return 0 }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "translationCustomCell", for: indexPath) as! TranslationTableViewCell
         
         cell.selectionStyle = .none
-        let word = model.Words[indexPath.row]
-        cell.terjemahan.text = word.text
-        cell.videoTerjemahan.image = UIImage.gifImageWithURL(word.video.fileURL?.absoluteString ?? "")
+        if filterText != nil {
+            print("ke filtertext", filterText ?? "tapi kosong")
+            let word = model.Words[indexPath.row]
+            cell.terjemahan.text = word.text
+            cell.videoTerjemahan.image = UIImage.gifImageWithURL(word.video.fileURL?.absoluteString ?? "")
+        }
+        
+        if hardcodedResult != nil {
+            let gif = UIImage.gifImageWithName(hardcodedResult?[indexPath.row] ?? "")
+            if gif != nil {
+                cell.videoTerjemahan.image = gif
+            } else {
+                cell.videoTerjemahan.image = UIImage(named: "Group 3")
+            }
+            cell.terjemahan.text = hardcodedResult?[indexPath.row]
+            loadingIndicator?.stopAnimating()
+            self.loadingIndicator.alpha = 0
+        }
         return cell
     }
     
@@ -82,17 +108,6 @@ extension TranslationPage: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-}
-
-let defaultUrl = URL(fileReferenceLiteralResourceName: "Group 3")
-
-extension CKAsset {
-    func toUIImage() -> UIImage? {
-        if let data = NSData(contentsOf: self.fileURL ?? defaultUrl) {
-            return UIImage(data: data as Data)
-        }
-        return nil
-    }
 }
 
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {

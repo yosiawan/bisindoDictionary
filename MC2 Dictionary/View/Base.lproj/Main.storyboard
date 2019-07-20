@@ -267,6 +267,7 @@
                         <outlet property="errorMessage" destination="JvF-S6-Q6v" id="hfH-Kz-qTe"/>
                         <outlet property="loadingIndicator" destination="2eb-mH-nf1" id="eX2-JI-84s"/>
                         <outlet property="preferencesTopik" destination="UbF-2a-XxW" id="7y1-RV-DKb"/>
+                        <segue destination="0NF-Nn-lJy" kind="show" identifier="topikToTranslation" id="9nG-yo-GNK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s04-w6-q5L" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -298,4 +299,7 @@
         <image name="Group 8" width="353" height="297"/>
         <image name="" width="18" height="18"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="9nG-yo-GNK"/>
+    </inferredMetricsTieBreakers>
 </document>
