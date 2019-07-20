@@ -50,16 +50,36 @@ class ViewController: UIViewController {
             let controller = segue.destination as! TranslationPage
             controller.filterText = textField.text ?? "Kucing"
         }
+//        if segue.identifier == "topikSegue" {
+//            let controller = segue.destination as! TranslationPage
+//            controller.filterText = textField.text ?? "Kucing"
+//        }
     }
 }
 
+let TopikName = [
+    "Abjad",
+    "Angka",
+    "HariBulan",
+    "KataTanya",
+    "Kegiatan",
+    "Keluarga",
+    "Kesehatan",
+    "Perasaan",
+    "Perkenalan",
+    "RasaBuah",
+    "Reaksi",
+    "Warna"
+]
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 12
+        return TopikName.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellViewCustom", for: indexPath) as! CustomTableViewCell
+        cell.textLabel?.text = TopikName[indexPath.row]
+        cell.imageView?.image = UIImage(named: TopikName[indexPath.row])
         return cell
     }
     

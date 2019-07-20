@@ -6,4 +6,41 @@
 //  Copyright © 2019 Apple Dev. Academy. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+let belanjaSentences: Any = [
+    [
+        "title": "Berapa harganya?",
+        "content": [
+            [
+                "video": UIImage.gifImageWithURL(Bundle.main.url(forResource: "masukin nama video disini", withExtension: nil)!.absoluteString) as Any,
+                "text": "Berapa"
+            ],
+            [
+                "video": UIImage.gifImageWithURL(Bundle.main.url(forResource: "masukin nama video disini", withExtension: nil)!.absoluteString) as Any,
+                "text": "harganya?"
+            ]
+        ]
+    ],
+    [
+        "title": "Bisa ditawar?",
+        "content": [
+            [
+                "video": UIImage.gifImageWithURL(Bundle.main.url(forResource: "masukin nama video disini", withExtension: nil)!.absoluteString) as Any,
+                "text": "Bisa"
+            ],
+            [
+                "video": UIImage.gifImageWithURL(Bundle.main.url(forResource: "masukin nama video disini", withExtension: nil)!.absoluteString) as Any,
+                "text": "ditawar?"
+            ]
+        ],
+    ]
+]
+
+let categoryList: [Any] = [
+    [
+        "title": "Belanja",
+        "sentences": belanjaSentences
+    ]
+]
+
