@@ -67,16 +67,15 @@ let topikSentences: [String: [[String]]] = [
     ],
     "Angka": [],
     "HariBulan": [],
-    "KataTanya": [
-        ["Saya", "Siapa"],
-        ["Kamu", "Tinggal", "Dimana"]
-    ],
+    "KataTanya": [],
     "Kegiatan": [],
     "Keluarga": [],
     "Kesehatan": [],
     "Perasaan": [],
     "Perkenalan": [
-        ["Nama", "Kamu", "Siapa"]
+        ["Kamu", "Bisa", "Bahasa Isyarat"]
+        ["Nama", "Kamu", "Siapa"],
+        ["Kamu", "Tinggal", "Dimana"]
     ],
     "RasaBuah": [],
     "Reaksi": [],
