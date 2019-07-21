@@ -73,7 +73,7 @@ let topikSentences: [String: [[String]]] = [
     "Kesehatan": [],
     "Perasaan": [],
     "Perkenalan": [
-        ["Kamu", "Bisa", "Bahasa Isyarat"]
+        ["Kamu", "Bisa", "Bahasa Isyarat"],
         ["Nama", "Kamu", "Siapa"],
         ["Kamu", "Tinggal", "Dimana"]
     ],
